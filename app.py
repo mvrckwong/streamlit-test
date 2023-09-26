@@ -7,6 +7,15 @@ from langchain.agents.agent_toolkits import create_python_agent
 from langchain.tools.python.tool import PythonREPLTool
 
 PATH = 'C:/Users/User/AppData/Local/nomic.ai/GPT4All/ggml-gpt4all-l13b-snoozy.bin'
+
+from pathlib import Path
+
+project_dir = Path.cwd()
+models_dir = project_dir / "models"
+
+PATH = str(models_dir / "ggml-model-gpt4all-falcon-q4_0.bin")
+
+
 llm = GPT4All(model=PATH, verbose=True)
 
 agent_executor = create_python_agent(
